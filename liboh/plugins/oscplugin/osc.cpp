@@ -34,11 +34,9 @@ strin >> port;
    p.Clear();
 
 p << osc::BeginMessage( "/ball" )
-    << currentClient.classname
-    << (int)currentClient.clientnum
-    << (float)currentClient.origin[0]
-    << (float)currentClient.origin[1]
-    << (float)currentClient.origin[2] 
+    << (float)currentClient.ball_x
+    << (float)currentClient.ball_y
+    << (float)currentClient.ball_z
   << osc::EndMessage;
 
    if(p.IsReady()){ socket.Send( p.Data(), p.Size() );}

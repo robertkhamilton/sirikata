@@ -12,7 +12,11 @@
 typedef struct {
 	float ball_x;
 	float ball_y;
-	float bally_z;
+	float ball_z;
+	char *hostname;
+	char *port;
+	int clientnum;
+	float origin[3];	
 } ball_coordinates;
 
 
@@ -56,8 +60,8 @@ typedef struct {
 void sendOSCbundle(osc_client_vars currentClient);
 void sendOSCmessage(osc_client_vars currentClient);
 
-void sendOSCbundle_projectile(osc_projectile_vars currentProjectile);
-void sendOSCmessage_projectile(osc_projectile_vars currentProjectile); //, char *type);
+//void sendOSCbundle_projectile(osc_projectile_vars currentProjectile);
+//void sendOSCmessage_projectile(osc_projectile_vars currentProjectile); //, char *type);
 
 void receiveOSCmessage( void ); // osc listener method
 
