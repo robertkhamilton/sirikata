@@ -294,6 +294,9 @@ public:
             }
         }
     }
+    ProxyObjectPtr getCamera() {
+        return mCamera;
+    }
 };
 
 }

@@ -241,7 +241,13 @@ bool BulletSystem::tick() {
                             physicalObjects[i]->meshptr->getPosition(),
                             physicalObjects[i]->meshptr->getOrientation()
                         ));
-                    DEBUG_OUTPUT(cout << "bulletpos after reset: " << physicalObjects[i]->getBulletState().p << endl;)
+                    DEBUG_OUTPUT(cout << "bulletpos after reset: " << physicalObjects[i]->getBulletState().p << endl);
+                    /// hacks for Rob, CCRMA
+                }
+                Vector3f size = physicalObjects[i]->meshptr->getScale();
+                if (size.x==1 && size.y==1 && size.z==1) {
+                    Vector3d position = physicalObjects[i]->meshptr->getPosition();
+                    cout << "hax: sphere of radius 1 moved to: " << position.x << ", " << position.y << ", " << position.z << endl;
                 }
             }
             //dynamicsWorld->stepSimulation(delta,0);
