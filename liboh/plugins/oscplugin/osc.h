@@ -9,11 +9,12 @@
 // Copyright: See COPYING file that comes with this distribution
 //
 //
+typedef struct {
+	float ball_x;
+	float ball_y;
+	float bally_z;
+} ball_coordinates;
 
-
-#if defined(__cplusplus) || defined(_cplusplus)
-   extern "C" {
-#endif
 
 typedef struct {
   char *hostname;
@@ -39,22 +40,6 @@ typedef struct {
 } osc_client_vars;
 
 
-typedef struct {
-  char *hostname;
-  char *port;
-  int ownernum;
-  int targetnum;
-  int bounce;
-  int explode;
-  float projectilenum;
-  float origin[3];
-  char *classname;
-  char *hostname1;
-  char *hostname2;
-  char *hostname3;
-  char *hostname4;
-  char *hostname5;
-} osc_projectile_vars;
 
 typedef struct {
   float g_gravity;
@@ -65,6 +50,7 @@ typedef struct {
   int g_homing_speed_update;
   int testvar;
 } osc_input_vars;
+
 
 //void sendOSCmessage(int clientno, char *hostname, char *portnumber);
 void sendOSCbundle(osc_client_vars currentClient);
@@ -77,14 +63,4 @@ void receiveOSCmessage( void ); // osc listener method
 
 osc_input_vars getOSCmessage( void ); // test data retrieval
 
-//#ifdef MACOS_X
-  extern osc_input_vars gOSCvars;
-//#else
-//   osc_input_vars gOSCvars;
-//#endif
-
-   
-#if defined(__cplusplus) || defined(_cplusplus)
-   }
-#endif
 
